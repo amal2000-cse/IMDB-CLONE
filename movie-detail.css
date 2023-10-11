@@ -22,3 +22,21 @@ body {
 }
 
 /* Add more styling as needed */
+.movie-container{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+    align-items: center;
+}
+.movie-container button{
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    width: 250px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    background: white;
+    font-size: 18px;
+}
+

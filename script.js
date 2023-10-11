@@ -14,6 +14,7 @@ function debounce(func, delay) {
         timer = setTimeout(func, delay);
     };
 }
+//for the search page
 
 async function searchMovies() {
     const query = searchInput.value;
@@ -28,6 +29,7 @@ async function searchMovies() {
         const response = await fetch(url);
         const data = await response.json();
         if (data.Search) {
+            // Display the movies in the UI
             displayMovies(data.Search);
         }
     } catch (error) {
@@ -69,7 +71,7 @@ function displayMovies(movies) {
 
         movieElement.appendChild(posterElement);
         movieElement.appendChild(titleElement);
-        movieElement.appendChild(ratingElement);
+       // movieElement.appendChild(ratingElement);
         movieElement.appendChild(favoriteButton);
 
         moviesContainer.appendChild(movieElement);
@@ -77,28 +79,22 @@ function displayMovies(movies) {
 }
 
 //movie-details page
-// In script.js
-// ... your existing code ...
-
-
 
 function handleMovieClick(movie) {
     const movieId = movie.imdbID;
     window.location.href = `movie-detail.html?id=${movieId}`;
 }
 
-// Example usage:
-// Replace this with your actual code that generates movie elements.
 const movieElements = document.querySelectorAll(".movie-link");
 movieElements.forEach(movieElement => {
     movieElement.addEventListener("click", (event) => {
-        event.preventDefault(); // Prevent the default link behavior
+        event.preventDefault(); 
         const imdbID = movieElement.href.split("=")[1];
         handleMovieClick({imdbID}); // Pass the IMDb ID to the function
     });
 });
 
-
+//for the Favourties page
 
 function addToFavorites(movie) {
     let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
@@ -150,7 +146,7 @@ function displayFavorites() {
 
             movieElement.appendChild(posterElement);
             movieElement.appendChild(titleElement);
-            movieElement.appendChild(ratingElement);
+          //  movieElement.appendChild(ratingElement);
 
             favoritesContainer.appendChild(movieElement);
         });
